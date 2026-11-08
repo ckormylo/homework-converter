@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Convert school worksheets into more accessible PDF layouts.">
+<title>Homework Converter</title><link rel="stylesheet" href="styles.css"></head>
+<body><main class="shell"><header><div class="logo" aria-hidden="true">✦</div><div><h1>Homework Converter</h1><p>Less clutter. More room to learn.</p></div></header>
+<section class="panel"><label class="drop" id="drop" for="file"><span class="upload-icon" aria-hidden="true">⇧</span><strong id="fileLabel">Choose a PDF worksheet</strong><span>Or drag it here · maximum 8 MB, 10 pages</span><input id="file" type="file" accept=".pdf,application/pdf"></label>
+<div class="defaults"><span class="check">✓</span><div><strong>Accommodations applied automatically</strong><p>3 problems per page · larger font · double spacing · reduced clutter · highlighted key details · soft cream background</p></div></div>
+<details><summary>Advanced options <span>⌄</span></summary><div class="options">
+<label>Problems per page<select id="problems"><option value="2">2</option><option value="3" selected>3 (default)</option><option value="4">4</option></select></label>
+<label>Font size<select id="font"><option value="16">16 pt</option><option value="18" selected>18 pt (default)</option><option value="20">20 pt</option></select></label>
+<label>Page background<select id="color"><option value="cream">Soft cream (default)</option><option value="white">White</option><option value="blue">Pale blue</option></select></label>
+<label class="checkline"><input id="highlight" type="checkbox" checked> Highlight key details</label>
+<label class="checkline"><input id="simplify" type="checkbox"> Simplify wording (requires teacher review)</label>
+<p class="small">These adjustments affect only this worksheet. No problems are removed.</p></div></details>
+<button id="convert" disabled>Convert worksheet</button><div id="status" role="status" aria-live="polite"></div>
+<div id="result" hidden><div id="review"></div><div class="buttons"><a id="download" class="action" download="adapted-worksheet.pdf">Download PDF</a><a id="preview" class="secondary" target="_blank" rel="noopener">Preview PDF ↗</a></div></div></section>
+<footer>Always compare the adapted worksheet against the original. Do not upload identifiable student information without school approval.</footer></main><script src="app.js"></script></body></html>
