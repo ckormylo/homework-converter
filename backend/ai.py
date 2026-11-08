@@ -13,7 +13,7 @@ def request(prompt,files,schema,name):
     for filename,blob in files:
         encoded=base64.b64encode(blob).decode("ascii")
         content.append({"type":"input_file","filename":filename,"file_data":"data:application/pdf;base64,"+encoded})
-    payload={"model":os.getenv("OPENAI_MODEL","gpt-4.1"),"store":False,"input":[{"role":"user","content":content}],"text":{"format":{"type":"json_schema","name":name,"strict":True,"schema":schema}}}
+    payload={"model":os.getenv("OPENAI_MODEL","gpt-6.1-sol"),"store":False,"input":[{"role":"user","content":content}],"text":{"format":{"type":"json_schema","name":name,"strict":True,"schema":schema}}}
     with httpx.Client(timeout=240) as client:
         response=client.post(URL,json=payload,headers={"Authorization":"Bearer "+key})
         response.raise_for_status()
